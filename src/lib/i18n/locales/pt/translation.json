@@ -63,7 +63,7 @@
           "dont-show-label": "Ocultar palavra-passe"
         },
         "rules": {
-          "lenght": "Deve ter entre 8 a 64 caracteres",
+          "length": "Deve ter entre 8 a 64 caracteres",
           "upperCase": "Pelo menos 1 letra maiúscula",
           "numeric": "Pelo menos 1 número",
           "special": "Pelo menos 1 caracter especial (e.g. ! @ # % $)"

@@ -1,18 +1,18 @@
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
-import type { AuthenticationFields } from "../../types/common.types";
+import type { AuthenticationFields } from "../../types/auth.types";
 import FieldErrorMessage from "@/components/shared/FieldErrorMessage/FieldErrorMessage";
 import useToggle from "@/hooks/useToggle";
 import useInputValidation from "@/hooks/useInputValidation";
-import { passwordValidation } from "../../SignUpForm/AuthStep/AuthStep.utils";
+import { passwordValidation } from "../../util/auth.utils";
 import PasswordToggleButton from "../../shared/PasswordField/PasswordToggleButton/PasswordToggleButton";
 
 /**
  * Renders the password field
  *
  * Displays an error message if:
- * - no email is provided
+ * - no password is provided
  * - TO DO: add password rules validation
  */
 export default function PasswordField() {

@@ -1,10 +1,10 @@
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
-import type { AuthenticationFields } from "../../types/common.types";
+import type { AuthenticationFields } from "../../types/auth.types";
 import FieldErrorMessage from "@/components/shared/FieldErrorMessage/FieldErrorMessage";
 import useInputValidation from "@/hooks/useInputValidation";
-import { emailValidation } from "../../SignUpForm/AuthStep/AuthStep.utils";
+import { emailValidation } from "../../util/auth.utils";
 
 /**
  * Renders the email field

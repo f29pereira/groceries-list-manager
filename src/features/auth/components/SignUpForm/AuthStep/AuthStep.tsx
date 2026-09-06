@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useForm, FormProvider } from "react-hook-form";
 import type { AuthStepProps } from "./AuthStep.types";
-import type { AuthenticationFields } from "../../types/common.types";
+import type { AuthenticationFields } from "../../types/auth.types";
 import EmailField from "../../shared/EmailField/EmailField";
 import PasswordField from "../../shared/PasswordField/PasswordField";
 import CreateAccountButton from "./CreateAccountButton/CreateAccountButton";

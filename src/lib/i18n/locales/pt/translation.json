@@ -52,10 +52,22 @@
   },
   "forms": {
     "step": "Etapa",
-    "password": {
-      "toggle": {
-        "show": "Mostrar palavra-passe",
-        "dont-show": "Ocultar palavra-passe"
+    "generic-errorMessages": {
+      "required": "Este campo é obrigatório",
+      "invalid": "Este campo é inválido"
+    },
+    "auth": {
+      "password": {
+        "toggle": {
+          "show-label": "Mostrar palavra-passe",
+          "dont-show-label": "Ocultar palavra-passe"
+        },
+        "rules": {
+          "lenght": "Deve ter entre 8 a 64 caracteres",
+          "upperCase": "Pelo menos 1 letra maiúscula",
+          "numeric": "Pelo menos 1 número",
+          "special": "Pelo menos 1 caracter especial (e.g. ! @ # % $)"
+        }
       }
     },
     "signUp": {
@@ -65,11 +77,7 @@
         "password-label": "Password",
         "signIn-message": "Já tem uma conta ?",
         "signIn-link": "Iniciar Sessão",
-        "submit-btn": "Criar conta",
-        "errorMessages": {
-          "required": "Este campo é obrigatório",
-          "invalid": "Este campo é inválido"
-        }
+        "submit-btn": "Criar conta"
       }
     }
   }

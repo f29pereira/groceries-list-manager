@@ -1,3 +1,4 @@
+import "./lib/firebase/firebase";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "@/assets/styles/globals.css";

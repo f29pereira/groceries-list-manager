@@ -25,9 +25,6 @@ export default function PasswordField() {
     formState: { errors },
   } = useFormContext<AuthenticationFields>();
 
-  // eslint-disable-next-line react-hooks/purity
-  console.log("PasswordField render, errors:", errors, Date.now());
-
   // Custom Hooks
   const { isToggled, toggle } = useToggle(false); // Password visibility
   const { isInputInvalid, getInputErrorMessage } = useInputValidation(errors);

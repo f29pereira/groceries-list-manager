@@ -23,9 +23,6 @@ export default function EmailField() {
     formState: { errors },
   } = useFormContext<AuthenticationFields>();
 
-  // eslint-disable-next-line react-hooks/purity
-  console.log("EmailField render, errors:", errors, Date.now());
-
   // Custom Hook
   const { isInputInvalid, getInputErrorMessage } = useInputValidation(errors);
 

@@ -24,8 +24,8 @@ export default function PasswordToggleButton({
       onClick={toggle}
       aria-label={
         isToggled
-          ? t("forms.password.toggle.dont-show")
-          : t("forms.password.toggle.show")
+          ? t("forms.auth.password.toggle.dont-show-label")
+          : t("forms.auth.password.toggle.show-label")
       }
     >
       {isToggled ? (

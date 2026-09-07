@@ -7,6 +7,8 @@ import { IoMdCheckmark, IoIosClose } from "@/assets/icons/icon";
  * Displays:
  * - A checkmark icon if the rule is valid
  * - A cross icon if the rule is invalid
+ *
+ * The icon features a pop-in animation.
  */
 export default function PasswordRuleIcon({
   isRuleValid,
@@ -14,9 +16,15 @@ export default function PasswordRuleIcon({
   return (
     <>
       {isRuleValid ? (
-        <IoMdCheckmark className="text-xl text-brand" />
+        <IoMdCheckmark
+          className="text-xl text-brand 
+                    motion-safe:animate-pop-in"
+        />
       ) : (
-        <IoIosClose className="text-2xl text-input-error" />
+        <IoIosClose
+          className="text-2xl text-input-error 
+                    motion-safe:animate-pop-in"
+        />
       )}
     </>
   );

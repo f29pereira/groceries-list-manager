@@ -1,29 +1,37 @@
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
+import type { PasswordFieldProps } from "./PasswordField.type";
 import type { AuthenticationFields } from "../../types/auth.types";
 import FieldErrorMessage from "@/components/shared/FieldErrorMessage/FieldErrorMessage";
 import useToggle from "@/hooks/useToggle";
 import useInputValidation from "@/hooks/useInputValidation";
-import { passwordValidation } from "../../util/auth.utils";
 import PasswordToggleButton from "../../shared/PasswordField/PasswordToggleButton/PasswordToggleButton";
+import PasswordRules from "./PasswordRules/PasswordRules";
 
 /**
  * Renders the password field
  *
  * Displays an error message if:
- * - no password is provided
- * - TO DO: add password rules validation
+ * - No password is provided
+ * - The provider password is invalid
+ *
+ * Props are defined in {@link PasswordFieldProps}.
  */
-export default function PasswordField() {
+export default function PasswordField({ validation }: PasswordFieldProps) {
+  "use no memo"; // Prevents React Hook Form (watch) conflict with the React compiler
+
   // Translation
   const { t } = useTranslation();
 
   // React Hook Form: context
   const {
     register,
+    watch,
     formState: { errors },
   } = useFormContext<AuthenticationFields>();
+
+  const currentPassword = watch("password");
 
   // Custom Hooks
   const { isToggled, toggle } = useToggle(false); // Password visibility
@@ -43,7 +51,7 @@ export default function PasswordField() {
         />
       </div>
 
-      <div className="relative mb-10">
+      <div className="relative">
         {/*Password input*/}
         <input
           className={clsx(
@@ -61,13 +69,13 @@ export default function PasswordField() {
           type={isToggled ? "text" : "password"}
           aria-invalid={isInputInvalid("password")}
           aria-describedby="password-error"
-          {...register("password", passwordValidation(t))}
+          {...register("password", validation(t, currentPassword))}
         />
 
         <PasswordToggleButton isToggled={isToggled} toggle={toggle} />
       </div>
 
-      {/*TO DO: Add password rules component*/}
+      <PasswordRules password={currentPassword} />
     </>
   );
 }

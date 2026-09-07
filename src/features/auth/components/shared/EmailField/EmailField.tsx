@@ -1,19 +1,21 @@
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import clsx from "clsx";
+import type { EmailFieldProps } from "./EmailField.types";
 import type { AuthenticationFields } from "../../types/auth.types";
 import FieldErrorMessage from "@/components/shared/FieldErrorMessage/FieldErrorMessage";
 import useInputValidation from "@/hooks/useInputValidation";
-import { emailValidation } from "../../util/auth.utils";
 
 /**
  * Renders the email field
  *
  * Displays an error message if:
- * - no email is provided
- * - provided email is invalid
+ * - No email is provided
+ * - The provided email is invalid
+ *
+ * Props are defined in {@link EmailFieldProps}.
  */
-export default function EmailField() {
+export default function EmailField({ validation }: EmailFieldProps) {
   // Translation
   const { t } = useTranslation();
 
@@ -57,7 +59,7 @@ export default function EmailField() {
         placeholder="e.g johndoe@lorem.com"
         aria-invalid={isInputInvalid("email")}
         aria-describedby="email-error"
-        {...register("email", emailValidation(t))}
+        {...register("email", validation(t))}
       />
     </>
   );

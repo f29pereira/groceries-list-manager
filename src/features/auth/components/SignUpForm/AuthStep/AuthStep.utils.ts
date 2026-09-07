@@ -1,13 +1,13 @@
 import type { TFunction } from "i18next";
 import type { RegisterOptions } from "react-hook-form";
-import type { AuthenticationFields } from "../types/auth.types";
-import { getPasswordStatus } from "../shared/PasswordField/PasswordRules/PasswordRules.utils";
+import type { AuthenticationFields } from "../../types/auth.types";
+import { getPasswordStatus } from "../../shared/PasswordField/PasswordRules/PasswordRules.utils";
 
 /**
- * Returns the React Hook Form validation for the email field
+ * Returns the React Hook Form validation for the email field on the sign up form
  * @param t error messages translation
  */
-export const emailValidation = (
+export const signUpEmailValidation = (
   t: TFunction<"translation", undefined>,
 ): RegisterOptions<AuthenticationFields, "email"> => {
   return {
@@ -20,11 +20,11 @@ export const emailValidation = (
 };
 
 /**
- * Returns the React Hook Form validation for the password field
+ * Returns the React Hook Form validation for the password field on the sign up form
  * @param t        error messages translation
  * @param password password field
  */
-export const passwordValidation = (
+export const signUpPasswordValidation = (
   t: TFunction<"translation", undefined>,
   password: string,
 ): RegisterOptions<AuthenticationFields, "password"> => {

@@ -6,6 +6,10 @@ import EmailField from "../../shared/EmailField/EmailField";
 import PasswordField from "../../shared/PasswordField/PasswordField";
 import CreateAccountButton from "./CreateAccountButton/CreateAccountButton";
 import NavigationLink from "@/components/ui/NavigationLink/NavigationLink";
+import {
+  signUpEmailValidation,
+  signUpPasswordValidation,
+} from "./AuthStep.utils";
 
 /**
  * Renders the user authentication form step used by the SignUpForm component
@@ -21,7 +25,11 @@ export default function AuthStep({ nextStep }: AuthStepProps) {
 
   // React Hook Form: context for inputs
   const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     register,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    watch,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors },
   } = methods;
 
@@ -55,8 +63,8 @@ export default function AuthStep({ nextStep }: AuthStepProps) {
           onSubmit={methods.handleSubmit(onSubmit)}
           noValidate
         >
-          <EmailField />
-          <PasswordField />
+          <EmailField validation={signUpEmailValidation} />
+          <PasswordField validation={signUpPasswordValidation} />
           <CreateAccountButton />
         </form>
       </FormProvider>

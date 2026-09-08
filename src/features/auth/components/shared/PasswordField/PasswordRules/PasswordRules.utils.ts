@@ -5,17 +5,17 @@ import { auth } from "@/lib/firebase/firebase";
 import { validatePassword } from "firebase/auth";
 
 /**
- * Returns the list of password rules and if are valid or not
+ * Returns the list of password rules with validation
  * @param t        rules translation
  * @param password password field
  *
- * @returns array with the following rules:
+ * @returns array with the following rules and if valid or invalid:
  * - min-max characters
  * - 1 uppercase character
  * - 1 numeric character
  * - 1 special character
  */
-export const getPasswordRules = async (
+export const getPasswordRulesWithValidation = async (
   t: TFunction<"translation", undefined>,
   password: string,
 ): Promise<Rule[]> => {
@@ -46,6 +46,46 @@ export const getPasswordRules = async (
       description: specialRule,
       isChecked: true,
       isValid: status.containsNonAlphanumericCharacter || false,
+    },
+  ];
+};
+
+/**
+ * Returns the list of password rules with no validation
+ * @param t        rules translation
+ *
+ * @returns array with the following rules:
+ * - min-max characters
+ * - 1 uppercase character
+ * - 1 numeric character
+ * - 1 special character
+ */
+export const getPasswordRulesNoValidation = (
+  t: TFunction<"translation", undefined>,
+): Rule[] => {
+  const [lengthRule, uppercaseRule, numericRule, specialRule] =
+    getPasswordRulesText(t);
+
+  return [
+    {
+      description: lengthRule,
+      isChecked: false,
+      isValid: false,
+    },
+    {
+      description: uppercaseRule,
+      isChecked: false,
+      isValid: false,
+    },
+    {
+      description: numericRule,
+      isChecked: false,
+      isValid: false,
+    },
+    {
+      description: specialRule,
+      isChecked: false,
+      isValid: false,
     },
   ];
 };

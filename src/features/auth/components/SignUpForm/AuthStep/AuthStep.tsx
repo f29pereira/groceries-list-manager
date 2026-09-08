@@ -59,13 +59,16 @@ export default function AuthStep({ nextStep }: AuthStepProps) {
 
       <FormProvider {...methods}>
         <form
-          className="flex flex-col justify-center"
+          className="w-full"
           onSubmit={methods.handleSubmit(onSubmit)}
           noValidate
         >
           <EmailField validation={signUpEmailValidation} />
           <PasswordField validation={signUpPasswordValidation} />
-          <CreateAccountButton />
+
+          <div className="sm:mx-auto sm:w-2/3 lg:w-full">
+            <CreateAccountButton />
+          </div>
         </form>
       </FormProvider>
 

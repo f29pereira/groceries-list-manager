@@ -19,11 +19,13 @@ export default function PasswordRuleIcon({
         <IoMdCheckmark
           className="text-xl text-brand 
                     motion-safe:animate-pop-in"
+          aria-hidden="true"
         />
       ) : (
         <IoIosClose
           className="text-2xl text-input-error 
                     motion-safe:animate-pop-in"
+          aria-hidden="true"
         />
       )}
     </>

@@ -113,9 +113,9 @@ export const getPasswordRulesText = (
   t: TFunction<"translation", undefined>,
 ): string[] => {
   return [
-    t("forms.auth.password.rules.length"),
-    t("forms.auth.password.rules.upperCase"),
-    t("forms.auth.password.rules.numeric"),
-    t("forms.auth.password.rules.special"),
+    t("forms.auth.password.rules.list.length"),
+    t("forms.auth.password.rules.list.upperCase"),
+    t("forms.auth.password.rules.list.numeric"),
+    t("forms.auth.password.rules.list.special"),
   ];
 };

@@ -63,15 +63,23 @@
           "dont-show-label": "Hide password"
         },
         "rules": {
-          "length": "Must be 8-64 characters long",
-          "upperCase": "At least 1 uppercase character",
-          "numeric": "At least 1 numeric character",
-          "special": "At least 1 special character (e.g ! @ # % $)"
+          "label": "Password rules",
+          "list": {
+            "length": "Must be 8-64 characters long",
+            "upperCase": "At least 1 uppercase character",
+            "numeric": "At least 1 numeric character",
+            "special": "At least 1 special character (e.g ! @ # % $)"
+          },
+          "validation": {
+            "checked": "Checked",
+            "unchecked": "Unchecked"
+          }
         }
       }
     },
     "signUp": {
       "auth-step": {
+        "step": "Account",
         "title": "Create an account",
         "email-label": "Email",
         "password-label": "Password",

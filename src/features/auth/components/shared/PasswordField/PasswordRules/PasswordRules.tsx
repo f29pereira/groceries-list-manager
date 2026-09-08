@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import clsx from "clsx";
 import type { PasswordRulesProps } from "./PasswordRules.types";
 import type { Rule } from "./PasswordRules.types";
 import {
@@ -60,25 +59,38 @@ export default function PasswordRules({ password }: PasswordRulesProps) {
   }, [t, password]);
 
   return (
-    <div className={clsx("w-62.5 h-37.5 mt-4 mb-8")}>
-      {rulesList.map((rule, index) => (
-        <div
-          className="grid grid-cols-[1.5rem_1fr] items-center gap-1 h-6 mb-2"
-          key={index}
-        >
-          {/*Rule icon*/}
-          {password && rule.isChecked ? (
-            <PasswordRuleIcon isRuleValid={rule.isValid} />
-          ) : (
-            <GoDot
-              className="text-lg text-green-800 dark:text-slate-300 motion-safe:animate-pop-in"
-              aria-hidden="true"
-            />
-          )}
-          {/*Rule descriotion*/}
-          <span className="text-sm text-paragraph">{rule.description}</span>
-        </div>
-      ))}
+    <div
+      className="w-62.5 h-37.5 mt-4 mb-8 mx-auto
+                sm:mx-0 sm:w-75"
+    >
+      <ul aria-label={t("forms.auth.password.rules.label")}>
+        {rulesList.map((rule, index) => (
+          <li
+            className="grid grid-cols-[1.5rem_1fr] items-center gap-1 min-h-6 mb-2"
+            key={index}
+          >
+            {/*Rule icon*/}
+            {password && rule.isChecked ? (
+              <PasswordRuleIcon isRuleValid={rule.isValid} />
+            ) : (
+              <GoDot
+                className="text-lg text-green-800 dark:text-slate-300 motion-safe:animate-pop-in"
+                aria-hidden="true"
+              />
+            )}
+            {/*Rule description*/}
+            <span className="text-sm text-paragraph">
+              {rule.description}
+              {/*Screen reader only text: Rule validation*/}
+              <span className="sr-only">
+                {password && rule.isChecked
+                  ? t("forms.auth.password.rules.validation.checked")
+                  : t("forms.auth.password.rules.validation.unchecked")}
+              </span>
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

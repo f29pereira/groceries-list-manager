@@ -63,15 +63,23 @@
           "dont-show-label": "Ocultar palavra-passe"
         },
         "rules": {
-          "length": "Deve ter entre 8 a 64 caracteres",
-          "upperCase": "Pelo menos 1 letra maiúscula",
-          "numeric": "Pelo menos 1 número",
-          "special": "Pelo menos 1 caracter especial (e.g. ! @ # % $)"
+          "label": "Regras da palavra-passe",
+          "list": {
+            "length": "Deve ter entre 8 a 64 caracteres",
+            "upperCase": "Pelo menos 1 letra maiúscula",
+            "numeric": "Pelo menos 1 número",
+            "special": "Pelo menos 1 caracter especial (e.g. ! @ # % $)"
+          },
+          "validation": {
+            "checked": "Válida",
+            "unchecked": "Inválida"
+          }
         }
       }
     },
     "signUp": {
       "auth-step": {
+        "step": "Conta",
         "title": "Criar uma conta",
         "email-label": "Email",
         "password-label": "Password",

@@ -11,7 +11,7 @@ export default function StepsList({ stepsList, currentStep }: StepListProps) {
   return (
     <div
       className="flex justify-center items-center gap-4
-                lg:flex-col"
+                lg:flex-col lg:h-full"
       aria-hidden="true"
     >
       {stepsList.map((step, index) => (
@@ -28,7 +28,7 @@ export default function StepsList({ stepsList, currentStep }: StepListProps) {
             <div
               className="w-full h-0.5 
                      bg-gray-300 
-                       lg:w-0.5 lg:h-20"
+                       lg:w-0.5 lg:flex-1"
             ></div>
           ) : null}
         </Fragment>

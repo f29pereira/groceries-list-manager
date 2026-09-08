@@ -21,6 +21,7 @@ import {
   Fa9,
   FaUserPlus,
 } from "react-icons/fa6";
+import { GoDot } from "react-icons/go";
 import { IoIosClose, IoMdMoon, IoMdSunny, IoMdCheckmark } from "react-icons/io";
 import { LuFileX, LuMonitor, LuSun, LuMoon } from "react-icons/lu";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
@@ -48,6 +49,7 @@ export {
   FaGlobe,
   FaRegEye,
   FaRegEyeSlash,
+  GoDot,
   LuFileX,
   LuMonitor,
   LuSun,

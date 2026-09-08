@@ -2,9 +2,13 @@ import { useState, useEffect } from "react";
 import clsx from "clsx";
 import type { PasswordRulesProps } from "./PasswordRules.types";
 import type { Rule } from "./PasswordRules.types";
-import { getPasswordRules, getPasswordRulesText } from "./PasswordRules.utils";
+import {
+  getPasswordRulesWithValidation,
+  getPasswordRulesNoValidation,
+} from "./PasswordRules.utils";
 import PasswordRuleIcon from "./PasswordRuleIcon/PasswordRuleIcon";
 import { useTranslation } from "react-i18next";
+import { GoDot } from "@/assets/icons/icon";
 
 /**
  * Renders a list of password rules
@@ -14,7 +18,7 @@ import { useTranslation } from "react-i18next";
  *
  * Or
  *
- * - list of rules with password validation with a checkmark or cross icon (if the rule is valid/invalid)
+ * - list of rules with password validation using a checkmark or cross icon (if the rule is valid/invalid)
  *
  * Props are defined in {@link PasswordRulesProps}.
  */
@@ -22,10 +26,11 @@ export default function PasswordRules({ password }: PasswordRulesProps) {
   // Translation
   const { t } = useTranslation();
 
-  // State
-  const [rulesList, setRulesList] = useState<Rule[] | null>(null);
+  // Data
+  const defaultRulesList = getPasswordRulesNoValidation(t);
 
-  const defaultRulesList = getPasswordRulesText(t);
+  // State
+  const [rulesList, setRulesList] = useState<Rule[]>(defaultRulesList);
 
   useEffect(() => {
     if (!password) {
@@ -36,14 +41,14 @@ export default function PasswordRules({ password }: PasswordRulesProps) {
 
     const getRulesDelay = setTimeout(async () => {
       try {
-        const passwordRules = await getPasswordRules(t, password);
+        const passwordRules = await getPasswordRulesWithValidation(t, password);
 
         if (!isCancelled) {
           setRulesList(passwordRules);
         }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
-        setRulesList(null); // Render defaultRulesList
+        setRulesList(getPasswordRulesNoValidation(t)); // Render the rules with no validaton
       }
     }, 300);
 
@@ -56,25 +61,24 @@ export default function PasswordRules({ password }: PasswordRulesProps) {
 
   return (
     <div className={clsx("w-62.5 h-37.5 mt-4 mb-8")}>
-      {!password || !rulesList
-        ? defaultRulesList.map((rule, index) => (
-            <div
-              className="grid grid-cols-[1.5rem_1fr] items-center gap-2 h-6 mb-2"
-              key={index}
-            >
-              <span className="inline-block w-2 h-2 rounded-full bg-paragraph"></span>
-              <span className="text-sm text-paragraph">{rule}</span>
-            </div>
-          ))
-        : rulesList.map((rule, index) => (
-            <div
-              className="grid grid-cols-[1.5rem_1fr] items-center gap-2 h-6 mb-2"
-              key={index}
-            >
-              <PasswordRuleIcon isRuleValid={rule.isValid} />
-              <span className="text-sm text-paragraph">{rule.description}</span>
-            </div>
-          ))}
+      {rulesList.map((rule, index) => (
+        <div
+          className="grid grid-cols-[1.5rem_1fr] items-center gap-1 h-6 mb-2"
+          key={index}
+        >
+          {/*Rule icon*/}
+          {password && rule.isChecked ? (
+            <PasswordRuleIcon isRuleValid={rule.isValid} />
+          ) : (
+            <GoDot
+              className="text-lg text-green-800 dark:text-slate-300 motion-safe:animate-pop-in"
+              aria-hidden="true"
+            />
+          )}
+          {/*Rule descriotion*/}
+          <span className="text-sm text-paragraph">{rule.description}</span>
+        </div>
+      ))}
     </div>
   );
 }

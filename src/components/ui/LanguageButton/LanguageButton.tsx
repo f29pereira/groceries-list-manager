@@ -17,6 +17,8 @@ import LanguageList from "./LanguageList/LanguageList";
  * Displays:
  * - the icon MdKeyboardArrowUp on viewports < 1024px
  * - the icon MdKeyboardArrowDown on viewports >= 1024px
+ *
+ * The button arrow icon features a rotation animation and the languages list features a opacity animation
  */
 export default function LanguageButton() {
   // Translation
@@ -45,19 +47,19 @@ export default function LanguageButton() {
 
   return (
     <div
-      className="relative z-10 h-13
+      className="relative h-13
                 lg:h-9.5 lg:w-32.75"
     >
       {/*Current app language button*/}
       <button
         className="relative z-10 w-full h-full px-2
-            text-slate-500 dark:text-white
-            border-2 border-solid border-slate-500 dark:border-white 
-            rounded-full cursor-pointer
-            outline-none
-            focus-visible:focus-ring focus-visible:outline-offset-2
-            theme-transition
-            hover:text-slate-400 hover:dark:text-slate-300"
+                border-2 border-solid border-slate-500 dark:border-white 
+                rounded-full outline-none cursor-pointer
+              bg-nav-footer-bg
+              text-slate-500 dark:text-white
+                focus-visible:focus-ring focus-visible:outline-offset-2
+                theme-transition
+              hover:text-slate-400 hover:dark:text-slate-300"
         onClick={handleClick}
         aria-label={`${t("languageButton.label")} ${getLocaleName(locale)}`}
       >
@@ -92,8 +94,13 @@ export default function LanguageButton() {
       {/*Languages list pop-up*/}
       {isToggled ? (
         <div
-          className="absolute bottom-full left-1/2 -translate-x-1/2 
-                    lg:top-9 lg:bottom-0"
+          className={clsx(
+            "absolute bottom-11.25 left-1/2 -translate-x-1/2",
+            "transition-discrete transition-opacity duration-300 ease-out",
+            "starting:opacity-0 motion-reduce:transition-none",
+            "lg:top-8 lg:bottom-0",
+            isToggled ? "opacity-100" : "opacity-0",
+          )}
         >
           <LanguageList close={handleClick} />
         </div>

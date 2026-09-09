@@ -48,6 +48,7 @@ export default function LanguageList({ close }: LanguageListProps) {
             >
               <div
                 className="flex justify-between items-center 
+                          rounded-full          
                           group-focus-visible:focus-ring group-focus-visible:outline-offset-2"
               >
                 <span

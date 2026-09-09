@@ -1,14 +1,14 @@
 import type { SupportedLanguages } from "@/types/common.types";
 
 /**
- * Returns the language name and given locale code
+ * Returns a given locale in uppercase
  * @param localeCode locale code
  *
- * @example getFormattedLocale(en)
- * // English (EN)
+ * @example getLocaleCode(en)
+ * // EN
  */
-export const getFormattedLocale = (localeCode: SupportedLanguages) => {
-  return `${getLocaleName(localeCode)} (${localeCode.toUpperCase()})`;
+export const getUppercaseLocaleCode = (localeCode: SupportedLanguages) => {
+  return `(${localeCode.toUpperCase()})`;
 };
 
 /**

@@ -1,5 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext/useLanguage";
-import { getFormattedLocale, getLocaleName } from "./LanguageList.utils";
+import { getLocaleName, getUppercaseLocaleCode } from "./LanguageList.utils";
 import type { LanguageListProps } from "./LanguageList.types";
 import type { SupportedLanguages } from "@/types/common.types";
 
@@ -22,18 +22,22 @@ export default function LanguageList({ close }: LanguageListProps) {
 
   return (
     <ul
-      className="w-27.5 overflow-hidden
+      className="w-32.5 min-h-20 overflow-hidden
               bg-white dark:bg-body-bg
                 border-solid border-x-2 border-t-2 rounded-t-xl
               border-slate-500 dark:border-white
-                lg:max-w-28 
+                lg:w-30
                 lg:border-t-0 lg:rounded-t-none lg:border-b-2 lg:rounded-b-xl"
       role="menu"
     >
       {localesList
         .filter((l) => l !== locale)
         .map((l, index) => (
-          <li key={index}>
+          <li
+            className="first:mt-2 last:mb-3 
+                      lg:first:mt-3 lg:last:mb-2"
+            key={index}
+          >
             <button
               className="w-full p-2
                         cursor-pointer
@@ -42,14 +46,23 @@ export default function LanguageList({ close }: LanguageListProps) {
               onClick={() => handleOnClick(l)}
               aria-label={getLocaleName(l)}
             >
-              <span
-                className="text-sm 
-                        text-paragraph
-                          group-focus-visible:focus-ring group-focus-visible:outline-offset-2 
-                          lg:text-base"
+              <div
+                className="flex justify-between items-center 
+                          group-focus-visible:focus-ring group-focus-visible:outline-offset-2"
               >
-                {getFormattedLocale(l)}
-              </span>
+                <span
+                  className="text-sm 
+                        text-paragraph"
+                >
+                  {getLocaleName(l)}
+                </span>
+                <span
+                  className="text-sm 
+                        text-paragraph"
+                >
+                  {getUppercaseLocaleCode(l)}
+                </span>
+              </div>
             </button>
           </li>
         ))}

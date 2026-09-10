@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 import type { PasswordFieldProps } from "./PasswordField.type";
 import type { AuthenticationFields } from "../../types/auth.types";
-import FieldErrorMessage from "@/components/shared/FieldErrorMessage/FieldErrorMessage";
+import FieldErrorMessage from "@/components/shared/Form/FieldErrorMessage/FieldErrorMessage";
 import useToggle from "@/hooks/useToggle";
 import useInputValidation from "@/hooks/useInputValidation";
 import PasswordToggleButton from "../../shared/PasswordField/PasswordToggleButton/PasswordToggleButton";

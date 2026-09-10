@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import clsx from "clsx";
 import type { EmailFieldProps } from "./EmailField.types";
 import type { AuthenticationFields } from "../../types/auth.types";
-import FieldErrorMessage from "@/components/shared/FieldErrorMessage/FieldErrorMessage";
+import FieldErrorMessage from "@/components/shared/Form/FieldErrorMessage/FieldErrorMessage";
 import useInputValidation from "@/hooks/useInputValidation";
 
 /**

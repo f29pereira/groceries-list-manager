@@ -54,7 +54,8 @@
     "step": "Step",
     "generic-errorMessages": {
       "required": "This field is required",
-      "invalid": "This field is invalid"
+      "invalid": "This field is invalid",
+      "error": "Sorry, something went wrong. Please try again later"
     },
     "auth": {
       "password": {
@@ -75,6 +76,10 @@
             "unchecked": "Unchecked"
           }
         }
+      },
+      "firebase-generic-error-messages": {
+        "network-request-failed": "Network error. Please check your connection and try again.",
+        "too-many-requests": "Too many attempts. Please wait a moment and try again"
       }
     },
     "signUp": {
@@ -85,7 +90,13 @@
         "password-label": "Password",
         "signIn-message": "Already have an account ?",
         "signIn-link": "Sign In",
-        "submit-btn": "Create account"
+        "submit-btn": "Create account",
+        "firebase-createUser-error-messages": {
+          "email-in-use": "This email is already in use. Please sign in instead",
+          "invalid-email": "Invalid email",
+          "operation-not-allowed": "Sorry, sign up is unavailable. Please try again later",
+          "weak-password": "Password is too weak. Please follow the password rules"
+        }
       }
     }
   }

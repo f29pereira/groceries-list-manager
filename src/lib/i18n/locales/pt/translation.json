@@ -54,7 +54,8 @@
     "step": "Etapa",
     "generic-errorMessages": {
       "required": "Este campo é obrigatório",
-      "invalid": "Este campo é inválido"
+      "invalid": "Este campo é inválido",
+      "error": "Desculpe, algo correu mal.Por favor, tente mais tarde"
     },
     "auth": {
       "password": {
@@ -75,6 +76,10 @@
             "unchecked": "Inválida"
           }
         }
+      },
+      "firebase-generic-error-messages": {
+        "network-request-failed": "Erro de rede. Verifique a sua ligação e tente novamente",
+        "too-many-requests": "Muitas tentativas. Por favor, aguarde um momento e tente novamente"
       }
     },
     "signUp": {
@@ -85,7 +90,13 @@
         "password-label": "Password",
         "signIn-message": "Já tem uma conta ?",
         "signIn-link": "Iniciar Sessão",
-        "submit-btn": "Criar conta"
+        "submit-btn": "Criar conta",
+        "firebase-createUser-error-messages": {
+          "email-in-use": "Este e-mail já está a ser utilizado. Por favor, inicie sessão",
+          "invalid-email": "Email inválido",
+          "operation-not-allowed": "Desculpe, o registo não está disponível. Por favor, tente mais tarde",
+          "weak-password": "Palavra-passe muito fraca. Por favor, siga as regras"
+        }
       }
     }
   }

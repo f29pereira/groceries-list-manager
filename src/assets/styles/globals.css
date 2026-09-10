@@ -41,6 +41,13 @@
       transform: scale(1);
     }
   }
+
+  /*spin 1s linear infinite*/
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 /*Theme transition utility*/

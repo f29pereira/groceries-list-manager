@@ -19,6 +19,8 @@ import { GoDot } from "@/assets/icons/icon";
  *
  * - list of rules with password validation using a checkmark or cross icon (if the rule is valid/invalid)
  *
+ * The rule icon features a pop-in animation.
+ *
  * Props are defined in {@link PasswordRulesProps}.
  */
 export default function PasswordRules({ password }: PasswordRulesProps) {
@@ -60,7 +62,7 @@ export default function PasswordRules({ password }: PasswordRulesProps) {
 
   return (
     <div
-      className="w-62.5 h-37.5 mt-4 mb-8 mx-auto
+      className="w-62.5 h-37.5 my-2 mx-auto
                 sm:mx-0 sm:w-75"
     >
       <ul aria-label={t("forms.auth.password.rules.label")}>
@@ -74,7 +76,8 @@ export default function PasswordRules({ password }: PasswordRulesProps) {
               <PasswordRuleIcon isRuleValid={rule.isValid} />
             ) : (
               <GoDot
-                className="text-lg text-green-800 dark:text-slate-300 motion-safe:animate-pop-in"
+                className="text-lg text-green-800 dark:text-slate-300 
+                          motion-safe:animate-pop-in"
                 aria-hidden="true"
               />
             )}

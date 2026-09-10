@@ -25,7 +25,7 @@ import { GoDot } from "react-icons/go";
 import { IoIosClose, IoMdMoon, IoMdSunny, IoMdCheckmark } from "react-icons/io";
 import { LuFileX, LuMonitor, LuSun, LuMoon } from "react-icons/lu";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import { RiArrowGoBackFill } from "react-icons/ri";
+import { RiArrowGoBackFill, RiErrorWarningLine } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { TbPaperBag } from "react-icons/tb";
 
@@ -61,6 +61,7 @@ export {
   IoMdSunny,
   IoMdCheckmark,
   RiArrowGoBackFill,
+  RiErrorWarningLine,
   RxHamburgerMenu,
   TbPaperBag,
 };

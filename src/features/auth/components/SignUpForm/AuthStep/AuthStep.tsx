@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import type { AuthStepProps } from "./AuthStep.types";
 import CreateAccountForm from "./CreateAccountForm/CreateAccountForm";
 import NavigationLink from "@/components/ui/NavigationLink/NavigationLink";
 
@@ -9,7 +8,7 @@ import NavigationLink from "@/components/ui/NavigationLink/NavigationLink";
  * - TO DO: Google Authentication button
  * - Sign in link
  */
-export default function AuthStep({ nextStep }: AuthStepProps) {
+export default function AuthStep() {
   // Translation
   const { t } = useTranslation();
 
@@ -25,7 +24,7 @@ export default function AuthStep({ nextStep }: AuthStepProps) {
         {t("forms.signUp.auth-step.title")}
       </h1>
 
-      <CreateAccountForm nextStep={nextStep} />
+      <CreateAccountForm />
 
       {/*TO DO: Add Google account*/}
 

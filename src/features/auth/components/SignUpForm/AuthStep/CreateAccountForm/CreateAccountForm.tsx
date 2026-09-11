@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useForm, FormProvider } from "react-hook-form";
-import type { CreateAccountFormProps } from "./CreateAccountForm.types";
 import type { AuthenticationFields } from "../../../types/auth.types";
 import {
   signUpEmailValidation,
   signUpPasswordValidation,
   getCreateUserErrorMessage,
 } from "./CreateAccountForm.utils";
+import { useMultiStep } from "@/contexts/MultiStepContext/useMultiStep";
 import { useAuth } from "@/contexts/AuthContext/useAuth";
 import { auth } from "@/lib/firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -19,15 +19,14 @@ import FormErrorMessage from "@/components/shared/Form/FormErrorMessage/FormErro
 /**
  * Renders the create account form with email and password fields
  */
-export default function CreateAccountForm({
-  nextStep,
-}: CreateAccountFormProps) {
+export default function CreateAccountForm() {
   "use no memo"; // Prevents React Hook Form conflict with the React compiler
 
   // Translation
   const { t } = useTranslation();
 
   // Context
+  const { nextStep } = useMultiStep();
   const { setUser } = useAuth();
 
   // React Hook Form: methods

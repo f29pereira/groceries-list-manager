@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useForm, FormProvider } from "react-hook-form";
-import type { AuthenticationFields } from "../../../types/auth.types";
+import type { AuthenticationFields } from "../../../../types/auth.types";
 import {
   signUpEmailValidation,
   signUpPasswordValidation,
@@ -11,9 +11,9 @@ import { useMultiStep } from "@/contexts/MultiStepContext/useMultiStep";
 import { useAuth } from "@/contexts/AuthContext/useAuth";
 import { auth } from "@/lib/firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import EmailField from "../../../shared/EmailField/EmailField";
-import PasswordField from "../../../shared/PasswordField/PasswordField";
-import CreateAccountButton from "./CreateAccountButton/CreateAccountButton";
+import EmailField from "../../../../shared/EmailField/EmailField";
+import PasswordField from "../../../../shared/PasswordField/PasswordField";
+import CreateAccountButton from "../CreateAccountButton/CreateAccountButton";
 import FormErrorMessage from "@/components/shared/Form/FormErrorMessage/FormErrorMessage";
 
 /**
